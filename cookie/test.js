@@ -5,7 +5,7 @@ const request = require('supertest').agent(server)
 describe('Cookies Views',()=> {
     after(()=> {
         server.close()
-      })
+      });
 
 
     [1, 2, 3].forEach( (i)=> {
