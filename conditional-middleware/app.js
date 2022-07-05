@@ -7,8 +7,8 @@ const app = new Koa()
 // when an asset is requested, illustrating how
 // middleware may "wrap" other middleware.
 
-function ignoreAssets(mw) {
-  return async function(ctx, next) {
+ async function ignoreAssets(mw) {
+
     if (/(\.js|\.css|\.ico)$/.test(ctx.path)) {
       await next();
     } else {
@@ -16,7 +16,6 @@ function ignoreAssets(mw) {
       await mw.call(this, ctx, next);
     }
   };
-}
 
 // TRY:
 // $ curl http://localhost:3000/
